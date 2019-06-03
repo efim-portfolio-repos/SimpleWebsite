@@ -1,0 +1,28 @@
+@model BlogListViewModel
+
+@{
+    ViewBag.Title = "Блог";
+}
+
+@foreach (Article article in Model.Articles)
+{
+    <article>
+        <h2>@article.Header</h2>
+        <time>@article.PublishDate.ToString("yyyy-MM-dd HH:mm")</time>   
+        @if (User.IsInRole("Bloggers"))
+        {
+            <form class="actions" asp-action="Delete" asp-route-id="@article.Id">
+                <a asp-action="Edit" asp-route-id="@article.Id">Редактировать</a> | <button type="submit">Удалить</button>
+            </form>
+        }        
+        <p>@article.Text</p>
+        <a asp-action="Article" asp-route-id="@article.Id">Коментариев: @(article.Comments?.Count() ?? 0)</a>
+    </article>
+}
+<pagination class="pagination" elements-count="@Model.TotalElements"
+            current-page="@Model.CurrentPage"
+            elements-on-page="@Model.ElementOnPage"
+            link-count="3"
+            class-for-link="pg-link"
+            class-for-active="pg-link pg-active"
+            class-for-arrow="pg-link"></pagination>

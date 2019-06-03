@@ -1,0 +1,19 @@
+@model Product
+
+<form class="form" asp-action="@ViewBag.Action" asp-route-id="@ViewBag.RouteId" method="post">
+    <div class="form-grid">
+        <label asp-for="Name"></label>
+        <input asp-for="Name"/>
+        <span class="validation-message" asp-validation-for="Name"></span>
+        <label asp-for="Price"></label>
+        <input asp-for="Price"/>
+        <span class="validation-message" asp-validation-for="Price"></span>
+        <label asp-for="Category"></label>
+        <select model-for="Category">
+            <option value="">Без категории</option>
+        </select>
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description"></textarea>
+    </div>
+    <input class="button" type="submit">
+</form>

@@ -1,0 +1,22 @@
+form.actions {
+
+    a {
+        text-decoration: none;
+    }
+    
+    button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+    
+    a, button {
+        color: #1e34fc;
+        padding: 0 4px;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

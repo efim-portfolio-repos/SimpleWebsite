@@ -1,0 +1,16 @@
+@model Dictionary<string, bool>
+
+@{
+    ViewBag.Title = "Редактировать роли пользователя " + ViewBag.UserName;
+}
+
+<form class="form" asp-action="Edit" method="post">
+    <div class="form-grid">
+        @foreach (var role in Model)
+        {    
+                <label for="@role.Key">@role.Key</label>
+                <input type="checkbox" name="inputRoles" id="@role.Key" value="@role.Key"  checked="@role.Value" @(ViewBag.IsAdmin && role.Key == "Admins" ? "disabled=true" : string.Empty )>
+        }
+    </div>
+    <input class="button" type="submit">
+</form>

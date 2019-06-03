@@ -1,0 +1,9 @@
+@model Product
+
+@{
+    ViewBag.Title = "Редактировать продукцию";
+    ViewBag.Action = "Edit"; 
+    ViewBag.RouteId = Model.Id; 
+}
+
+<partial name="_FormPartial" model="@Model"></partial>

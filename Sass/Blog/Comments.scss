@@ -1,0 +1,23 @@
+.comments {
+    margin: 4px 8px;
+
+    .comments-header {
+        font-size: 1.2rem;
+    }
+
+    .comments-header, .comment-header {
+        font-weight: bold;
+    }
+
+    .comment {
+        margin: 8px;
+
+        p {
+            margin: 4px 0;
+        }
+    }
+
+    time {
+        font-style: italic;
+    }
+}

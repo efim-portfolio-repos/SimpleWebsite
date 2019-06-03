@@ -1,0 +1,13 @@
+{
+  "name": "simple-website",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:sass": "sass sass:wwwroot/css",
+    "watch:sass": "sass sass/Main.scss:wwwroot/css/main.css --watch"
+  },
+  "author": "",
+  "license": "ISC"
+}

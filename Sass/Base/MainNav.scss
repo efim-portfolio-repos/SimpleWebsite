@@ -1,0 +1,26 @@
+#main-nav {
+    background-color: black;
+
+    nav {
+        padding: 0;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        display:  flex;
+        justify-content: flex-end;
+        list-style: none;
+
+        li a {
+            display: block;
+            padding: 25px 20px;
+            color: #fff;
+            text-decoration: none;
+
+            &:hover {
+                background-color: #222;
+            }
+        }
+    }
+}

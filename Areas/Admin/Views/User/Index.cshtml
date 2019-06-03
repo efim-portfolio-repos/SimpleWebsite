@@ -1,0 +1,25 @@
+@model IEnumerable<User>
+
+@{
+    ViewBag.Title = "Все пользователи";
+}
+
+<table class="summary-table">
+    <thead>
+        <th>Имя</th>
+        <th>Email</th>
+        <th></th>
+    </thead>
+    <tbody>
+        @foreach (User user in Model)
+        {
+            <tr>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@user.Id">Редактировать роли</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

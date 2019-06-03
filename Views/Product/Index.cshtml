@@ -1,0 +1,18 @@
+@model IEnumerable<Category>
+
+@{
+    ViewBag.Title = "Продукция";
+}
+
+@foreach (Category category in Model)
+{
+    <h2>@category.Name</h2>
+    foreach (Product product in category.Products)
+    {
+        <div>
+            <h3>@product.Name</h3>
+            <p>@product.Price</p>
+            <p>@product.Description</p>
+        </div>
+    }
+}

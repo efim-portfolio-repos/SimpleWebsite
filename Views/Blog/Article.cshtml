@@ -1,0 +1,43 @@
+@model Article
+
+@{
+    ViewBag.Title = "";
+}
+
+<article>
+    <h2>@Model.Header</h2>
+    <time>@Model.PublishDate.ToString("yyyy-MM-dd HH:mm")</time>   
+    @if (User.IsInRole("Bloggers"))
+    {
+        <form class="actions" asp-action="Delete" asp-route-id="@Model.Id">
+            <a asp-action="Edit" asp-route-id="@Model.Id">Редактировать</a> | <button type="submit">Удалить</button>
+        </form>
+    }        
+    <p>@Model.Text</p>
+</article>
+<div class="comments">
+    <div class="comments-header">Комментарии</div>
+    @foreach (Comment comment in Model.Comments)
+    {
+        <div class="comment">
+            <p class="comment-header">@comment.User.UserName</p>
+            <p>@comment.Text</p>
+            <time>@comment.PublishTime.ToString("yyyy-MM-dd HH:mm")</time>
+        </div>
+    }
+    @if (User.Identity.IsAuthenticated)
+    {
+        <form class="form" asp-action="AddComment" method="post">
+            <input type="hidden" name="articleId" value="@Model.Id">
+            <div class="form-grid">
+                <label for="text">Написать комментарий: </label>
+                <textarea name="text" id="text" style="height: 80px;"></textarea>
+            </div>
+            <input class="button" type="submit">
+        </form>
+    } 
+    else
+    {
+        <p>Оставлять комментарии могут только <a asp-controller="Account" asp-action="Registration">зарегистрированные</a> пользователи</p>
+    }
+</div>

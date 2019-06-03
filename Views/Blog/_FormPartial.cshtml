@@ -1,0 +1,12 @@
+@model Article
+
+<form class="form" asp-action="@ViewBag.Action" asp-route-id="@ViewBag.RouteId" method="post">
+    <div class="form-grid">
+        <label asp-for="Header"></label>
+        <input asp-for="Header">
+        <span asp-validation-for="Header"></span>
+        <label asp-for="Text"></label>
+        <textarea asp-for="Text"></textarea>
+    </div>
+    <input class="button" type="submit">
+</form>

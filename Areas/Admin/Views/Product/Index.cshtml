@@ -1,0 +1,38 @@
+@model IEnumerable<Product>
+
+@{
+    ViewBag.Title = "Продукция";
+}
+<a asp-action="Add" class="button">Добавить</a>
+<table class="summary-table">
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Цена</th>
+            <th>Категория</th>
+            <th>Описание</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@(product.Category?.Name ?? "Без категории")</td>
+                <td>@product.Description</td>
+                <td>
+                    <form class="actions" asp-action="Delete" asp-route-id="@product.Id" method="post"><a asp-action="Edit" asp-route-id="@product.Id">Редактировать</a>|<button type="submit">Удалить</button></form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@if (!Model.Any())
+{
+    <div>
+        No products
+    </div>
+} 
+

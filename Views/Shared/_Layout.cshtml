@@ -1,0 +1,13 @@
+@{
+    Layout = "_BaseLayout";
+}
+
+<div class="container">
+    <div id="main-grid">
+        <partial name="_NavigationPartial" />
+        <main>
+            <h1>@ViewBag.Title</h1>
+            @RenderBody()
+        </main>
+    </div>
+</div>

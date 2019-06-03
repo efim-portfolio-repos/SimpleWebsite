@@ -1,0 +1,19 @@
+@model LoginViewModel
+
+@{
+    ViewBag.Title = "Войти";
+}
+
+<div asp-validation-summary="ModelOnly"></div>
+<form class="form" asp-area="" asp-controller="Account" asp-action="Login">
+    <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
+    <div class="form-grid">
+        <label asp-for="Email"></label>
+        <input asp-for="Email"/>
+        <span asp-validation-for="Email"></span>
+        <label asp-for="Password"></label>
+        <input asp-for="Password"/>
+        <span asp-validation-for="Password"></span>
+    </div>
+    <input class="button" type="submit"/>
+</form>

@@ -1,0 +1,21 @@
+@model RegistrationViewModel
+
+@{
+    ViewBag.Title = "Регистрация";
+}
+
+<div asp-validation-summary="ModelOnly"></div>
+<form class="form" asp-action="Registration" method="post">
+    <div class="form-grid">
+        <label asp-for="Name"></label>
+        <input asp-for="Name"/>
+        <span asp-validation-for="Name"></span>
+        <label asp-for="Email"></label>
+        <input asp-for="Email"/>
+        <span asp-validation-for="Email"></span>
+        <label asp-for="Password"></label>
+        <input asp-for="Password"/>
+        <span asp-validation-for="Password"></span>
+    </div>
+    <input class="button" type="submit"/>
+</form>
